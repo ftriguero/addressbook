@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<title>Address Book</title>
+		<th:block th:replace="/fragments/styling :: head-style"></th:block>		
+	</head>
+	<body>
+		<div class="container">
+			<div th:replace="fragments/navbar :: navbar"></div>
+			<h1> Welcome to your Address Book!</h1>
+			<h3> Here is your list of Contacts!</h3>
+			<div class="row">
+				<div th:each="entry:${posts}">
+					<div class="col-md-6">
+						<div class="panel panel-default">
+			                <div class="panel-heading">
+			                    <p th:text="${entry.firstName}"/>
+			                    <p th:text="${entry.LastName}"/>
+							</div>
+					    <div class="panel-body">
+							<p th:text="${entry.phoneNumber}"/>
+							<p th:text="${entry.emailAddress}" />
+					    </div>
+					    <div class="panel-footer">
+					    	<a href="#" th:href="@{/contactlist/{id}(id=${entry.id})}">
+            					<button class="btn btn-light">Edit Contact</button>
+            				</a>
+            				<a href="#" th:href="@{/contactlist/delete/{id}(id=${entry.id})}">
+            					<button class="btn btn-danger">Delete Contact</button>
+            				</a>
+            			
+			            </div>
+			          	</div>
+			        </div>
+				</div>
+			</div>
+			
+		</div>
+		<div th:replace="/fragments/styling :: body-links"></div>
+	</body>
+</html>
+	

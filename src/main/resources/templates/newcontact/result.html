@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Address Book</title>
+    <th:block th:replace="/fragments/styling :: head-style"></th:block>		
+  </head>
+  <body>
+  	<div class="container">
+  	 	<div th:replace="fragments/navbar :: navbar"></div>
+  		<div class="row">
+  			<div class="col-md-12">
+				<h3>New Contact:</h3>
+  				<div class="panel panel-primary">
+  					<div class="panel-heading">
+					    <p th:text="${newContact.firstName}" />
+					    <p th:text="${newContact.lastName}" />
+					</div>
+					<div class="panel-body">
+					    <p th:text="${newContact.phoneNumber}" />
+					    <p th:text="${newContact.emailAddress}" />
+					</div>
+					
+					<div class="panel-footer">   
+				    <a th:href="@{/}"><button class="btn btn-success">Back To Home Page</button></a>
+					<a th:href="@{/contactlist/new}"><button class= "btn btn-primary">Submit a New Contact</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:replace="/fragments/styling :: body-links"></div>
+  </body>
+</html>

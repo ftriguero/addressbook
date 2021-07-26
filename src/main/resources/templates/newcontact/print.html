@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<title>Print</title>
+	<th:block th:replace="/fragments/styling :: head-style"></th:block>	
+	</head>
+	<body>
+		<div th:replace="/fragments/styling :: body-links"></div>
+	<br>
+	<div th:if="${not #lists.isEmpty(entries)}">
+
+	<h4>All Entries:</h4>
+	<br>
+		<div th:each="newContact : ${entries}">
+			<p th:text="${newContact.firstName} + ' ' + ${newContact.lastName}" />
+			<p th:text="${newContact.email}" />
+			<p th:text="${newContact.phoneNumber}" />
+			<br>
+		</div>
+
+	</div>
+
+	<div th:unless="${not #lists.isEmpty(entries)}">
+		<p>The contact list is currently empty.</p>
+		<br>
+	</div>
+	<a th:href="@{/}">Return to Main Menu</a>
+	<br>
+</body>
+</html>

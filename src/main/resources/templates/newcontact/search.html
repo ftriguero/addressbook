@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Search</title>
+    <th:block th:replace="/fragments/styling :: head-style"></th:block>		
+  </head>
+  <body>
+  	<div class="container">
+  		<div th:replace="fragments/navbar :: navbar"></div>
+  		
+  		
+		  <h1> Search Contact:</h1>
+			<form action="#" th:action="@{/searchresult}" th:object="${newContact}" method="post">
+				<table>
+					<tr>
+						<td>Email:</td>
+						<td><input type="text" th:field="*{email}" /></td>
+					</tr>
+				</table>
+				<button class="button" type="submit"> Search</button>
+			</form>	
+	</div>
+	<div th:replace="/fragments/styling :: body-links"></div>
+  </body>
+</html>
